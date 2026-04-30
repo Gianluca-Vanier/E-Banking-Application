@@ -1,24 +1,42 @@
 package Classes;
 
+import java.time.LocalDate;
+
 public abstract class Account 
 {
-    /* void deposit(amount){
-        IF amount > 0
-            balance = balance + amount
-            CREATE Transaction("Deposit", amount)
-        ELSE
-            DISPLAY "Invalid amount"
-    } */
+    public String accountNum;
+    public double balance;
+    public LocalDate openingDate;
+    public static int counter = 0;
 
-    /* void withdraw(amount){
-        IF amount <= balance
-            balance = balance - amount
-            CREATE Transaction("Withdraw", amount)
-        ELSE
-            THROW InsufficientFundsException
-    } */
+    public Account(){
+        this.accountNum = ++counter + "";
+        this.balance = 0;
+        this.openingDate = LocalDate.now();
+    }
+    
+    public void deposit(double amount){
+        if(amount > 0){
+            balance += amount;
+            Transaction deposit = new Transaction("deposit", amount);
+        }
+        else{
+            //Replace with JavaFX
+            System.out.println("Invalid amount");
+        }
+    }
 
-    /* double getBalance(){
-        RETURN balance
-    } */
+    public void withdraw(double amount){
+        if(amount <= balance){
+            balance -= amount;
+            Transaction withdraw = new Transaction("withdraw", amount);
+        }
+        else{
+            throw new InsufficientFundsException();
+        }
+    }
+
+    public double getBalance(){
+        return balance;
+    }
 }
