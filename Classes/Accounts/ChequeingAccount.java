@@ -1,4 +1,4 @@
-package Classes;
+package Classes.Accounts;
 
 public class ChequeingAccount extends Account 
 {

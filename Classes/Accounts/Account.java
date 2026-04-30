@@ -1,6 +1,8 @@
-package Classes;
+package Classes.Accounts;
 
 import java.time.LocalDate;
+
+import Classes.Transaction;
 
 public abstract class Account 
 {

@@ -1,6 +1,8 @@
-package Classes;
+package Classes.Clients;
 
 import java.util.ArrayList;
+
+import Classes.Accounts.Account;
 
 public abstract class Client 
 {
