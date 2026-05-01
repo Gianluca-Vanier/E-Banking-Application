@@ -1,23 +1,24 @@
 package Classes.Accounts;
 
-public class SavingsAccount extends Account 
+import Classes.Clients.Client;
+import Classes.Clients.VIPClient;
+import Interfaces.Interest;
+import Interfaces.Maintainable;
+
+public class SavingsAccount extends Account implements Interest
 {
-    /* @Override
-    void applyMonthlyLateFee(){
-        IF client is StudentClient OR VIPClient
-            fee = 0
-        ELSE
-            fee = 10
+    public SavingsAccount(Client owner){
+        super(owner);
+    }
+    
+    @Override
+    public void applyInterest(){
+        double rate = 0.02;
+        
+        if(owner instanceof VIPClient){
+            rate += 0.01;
+        }
 
-        balance = balance - fee
-    } */
-
-    /* void applyInterest(){
-        interest = balance * 0.02
-
-        IF client is VIPClient
-            interest += balance * 0.01
-
-        balance += interest
-    } */
+        balance += balance * rate;
+    }
 }

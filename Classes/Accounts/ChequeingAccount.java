@@ -1,14 +1,27 @@
 package Classes.Accounts;
 
-public class ChequeingAccount extends Account 
-{
-    /* @Override
-    void applyMonthlyLateFee(){
-        IF client is StudentClient OR VIPClient
-            fee = 0
-        ELSE
-            fee = 10
+import Classes.Clients.Client;
+import Classes.Clients.StudentClient;
+import Classes.Clients.VIPClient;
+import Interfaces.Maintainable;
 
-        balance = balance - fee
-    } */
+public class ChequeingAccount extends Account implements Maintainable
+{
+    public ChequeingAccount(Client owner){
+        super(owner);
+    }
+    
+    @Override
+    public void applyMonthlyFee(){
+        double fee;
+        
+        if(owner instanceof StudentClient || owner instanceof VIPClient){
+            fee = 0;
+        }
+        else{
+            fee = 10;
+        }
+
+        balance -= fee;
+    }
 }

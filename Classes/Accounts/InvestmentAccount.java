@@ -1,29 +1,53 @@
 package Classes.Accounts;
 
-public class InvestmentAccount extends Account 
+import java.time.LocalDate;
+
+import Classes.Clients.Client;
+import Classes.Clients.VIPClient;
+import Exceptions.InsufficientFundsException;
+import Exceptions.InvestmentLockException;
+import Interfaces.Interest;
+
+public class InvestmentAccount extends Account implements Interest
 {
-    /* void transfertoChequeing(amount){
-        IF currentDate - openingDate < 365 days
-            THROW InvestmentLockException
-
-        IF amount <= balance
-            balance -= amount
-            chequeing.balance += amount
-        ELSE
-            THROW InsufficientFundsException
-    } */
+    public InvestmentAccount(Client owner){
+        super(owner);
+    }
     
-    /* @Override
-    void withdraw(){
-        DISPLAY "Direct withdrawal not allowed"
-    } */
+    public void transfertoChequeing(Account chequeing, double amount){
+        try{
+            if(LocalDate.now().isBefore(openingDate.plusDays(365))){
+            throw new InvestmentLockException();
+            }
 
-    /* void applyInterest(){
-        interest = balance * 0.05
+            if(amount > balance){
+                throw new InsufficientFundsException();
+            }
+        } 
+        catch(InvestmentLockException e){
+            System.out.println(e);
+        }
+        catch(InsufficientFundsException e){
+            System.out.println(e);
+        }
 
-        IF client is VIPClient
-            interest += balance * 0.01
+        balance -= amount;
+        chequeing.deposit(amount);
+    }
+    
+    @Override
+    public void withdraw(double amount){
+        throw new UnsupportedOperationException("Direct withdrawl now allowed.");
+    }
 
-        balance += interest
-    } */
+    @Override
+    public void applyInterest(){
+        double rate = 0.02;
+        
+        if(owner instanceof VIPClient){
+            rate += 0.01;
+        }
+
+        balance += balance * rate;
+    }
 }

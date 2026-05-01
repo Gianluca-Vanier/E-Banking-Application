@@ -1,7 +1,6 @@
 package Classes.Clients;
 
 import java.util.ArrayList;
-
 import Classes.Accounts.Account;
 
 public abstract class Client 
@@ -27,7 +26,7 @@ public abstract class Client
     } */
     
     public boolean login(String id, String password){
-        if(clientID.equals(id) && password.equals(password)){
+        if(clientID.equals(id) && this.password.equals(password)){
             return true;
         }
         
