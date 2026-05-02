@@ -8,7 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class AppFX extends Application{
+public class AppFX extends Application
+{
     @Override
     public void start(Stage stage) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("main.fxml"));
@@ -17,9 +18,5 @@ public class AppFX extends Application{
         stage.setScene(scene);
         stage.setTitle("Hello JavaFX");
         stage.show();
-    }
-
-    public static void main(String[] args){
-        launch();
     }
 }
