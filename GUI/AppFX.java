@@ -12,11 +12,12 @@ public class AppFX extends Application
 {
     @Override
     public void start(Stage stage) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("main.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("login.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Hello JavaFX");
+        stage.setTitle("E Banking App Login");
+        stage.sizeToScene();
         stage.show();
     }
 }
