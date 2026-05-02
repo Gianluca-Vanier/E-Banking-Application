@@ -2,6 +2,8 @@ package Classes;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
+
+import Classes.Accounts.Account;
 import Classes.Clients.Client;
 import java.io.*;
 import java.lang.reflect.Type;
@@ -30,4 +32,12 @@ public class DataManager
             return new ArrayList<>();
         }
     }
+
+    public static void linkAccountsToOwners(ArrayList<Client> clients){
+    for(Client c : clients){
+        for(Account acc : c.accounts){
+            acc.owner = c;
+        }
+    }
+}
 }
