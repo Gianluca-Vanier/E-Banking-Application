@@ -1,0 +1,32 @@
+package Classes;
+
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
+import Classes.Clients.Client;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+
+public class DataManager{
+    private static final String FILE_PATH = "clients.json";
+    private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+    public static void saveClients(ArrayList<Client> clients){
+        try(Writer writer = new FileWriter(FILE_PATH)){
+            gson.toJson(clients, writer);
+        }
+        catch(IOException e){
+            System.out.println(e);
+        }
+    }
+
+    public static ArrayList<Client> loadClients(){
+        try(Reader reader = new FileReader(FILE_PATH)){
+            Type clientListType = new TypeToken<ArrayList<Client>>(){}.getType();
+            return gson.fromJson(reader, clientListType);
+        } 
+        catch(IOException e){
+            return new ArrayList<>();
+        }
+    }
+}

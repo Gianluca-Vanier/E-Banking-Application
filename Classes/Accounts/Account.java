@@ -10,7 +10,8 @@ import Classes.Clients.Client;
 public abstract class Account 
 {
     public String accountNum;
-    public Client owner;
+    public transient Client owner;
+    public String ownerID;
     public double balance;
     public LocalDate openingDate;
     public ArrayList<Transaction> transactions = new ArrayList<>();
@@ -20,6 +21,7 @@ public abstract class Account
     public Account(Client owner){
         this.accountNum = ++counter + "";
         this.owner = owner;
+        this.ownerID = owner.getID();
         this.balance = 0;
         this.openingDate = LocalDate.now();
     }

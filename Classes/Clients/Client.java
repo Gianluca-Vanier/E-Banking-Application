@@ -59,4 +59,8 @@ public abstract class Client
         System.out.println("Id or password is incorrect.");
         return false;
     }
+
+    public String getID(){
+        return clientID;
+    }
 }

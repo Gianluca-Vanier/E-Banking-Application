@@ -3,7 +3,6 @@ package Classes.Accounts;
 import Classes.Clients.Client;
 import Classes.Clients.VIPClient;
 import Interfaces.Interest;
-import Interfaces.Maintainable;
 
 public class SavingsAccount extends Account implements Interest
 {
