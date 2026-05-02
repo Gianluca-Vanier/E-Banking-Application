@@ -21,7 +21,7 @@ public abstract class Account
     public Account(Client owner){
         this.accountNum = ++counter + "";
         this.owner = owner;
-        this.ownerID = owner.getID();
+        this.ownerID = owner.clientID;
         this.balance = 0;
         this.openingDate = LocalDate.now();
     }

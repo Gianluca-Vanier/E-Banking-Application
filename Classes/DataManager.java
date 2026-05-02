@@ -7,7 +7,8 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-public class DataManager{
+public class DataManager
+{
     private static final String FILE_PATH = "clients.json";
     private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
