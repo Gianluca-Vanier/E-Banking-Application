@@ -3,6 +3,7 @@
     "clientID": "1",
     "name": "UserAdmin",
     "password": "1234",
+    "type": "IndividualClient",
     "accounts": []
   }
 ]

@@ -8,7 +8,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.DashboardController">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="600.0" style="-fx-background-color: navy;">
@@ -74,7 +73,7 @@
                         <Font name="Times New Roman Bold" size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="addAccount" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 100; -fx-background-color: white;" text="+">
+                  <Button fx:id="addAccount" mnemonicParsing="false" onAction="#onAddAccount" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 100; -fx-background-color: white;" text="+">
                      <font>
                         <Font size="24.0" />
                      </font>

@@ -79,25 +79,25 @@ public class SignUpController
 
     @FXML
     protected void indiClick(){
-        InfoDisplay.setText("$10 monthly fee per account\n2% interest on Saving accounts\n5% interest on Investment accounts");
+        InfoDisplay.setText("Individual Client\n$10 monthly fee per account\n2% interest on Saving accounts\n5% interest on Investment accounts");
         clientType = "Individual";
     }
 
     @FXML
     protected void studentClick(){
-        InfoDisplay.setText("No monthly fee\n2% interest on Saving accounts\n5% interest on Investment accounts");
+        InfoDisplay.setText("Student Client\\nNo monthly fee\n2% interest on Saving accounts\n5% interest on Investment accounts");
         clientType = "Student";
     }
 
     @FXML
     protected void corpClick(){
-        InfoDisplay.setText("$10 monthly fee per account\n2% interest on Saving accounts\n5% interest on Investment accounts");
+        InfoDisplay.setText("Corporate Client\\n$10 monthly fee per account\n2% interest on Saving accounts\n5% interest on Investment accounts");
         clientType = "Corporate";
     }
 
     @FXML
     protected void vipClick(){
-        InfoDisplay.setText("no monthly fee\n2% interest on Saving accounts\n5% interest on Investment accounts\n%1 interest bonus on Savings and Investment accounts");
+        InfoDisplay.setText("VIP Client\\nno monthly fee\n2% interest on Saving accounts\n5% interest on Investment accounts\n%1 interest bonus on Savings and Investment accounts");
         clientType = "VIP";
     }
 

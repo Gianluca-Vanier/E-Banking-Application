@@ -12,6 +12,7 @@ public abstract class Client
     public String clientID;
     public String name;
     public String password;
+    public String type;
     public ArrayList<Account> accounts = new ArrayList<>();
     public static int counter = 0;
 
@@ -19,9 +20,10 @@ public abstract class Client
         this.clientID = ++counter + "";
         this.name = name;
         this.password = password;
+        this.type = this.getClass().getSimpleName();
     }
 
-    void addAccount(Account acc){
+    public void addAccount(Account acc){
         if(acc instanceof SavingsAccount || acc instanceof InvestmentAccount){
             boolean hasChequeing = false;
 
@@ -66,5 +68,9 @@ public abstract class Client
 
     public String getPassword(){
         return password;
+    }
+
+    public String getName(){
+        return name;
     }
 }

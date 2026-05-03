@@ -9,10 +9,24 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+import Classes.Clients.IndividualClient;
+import Classes.Clients.StudentClient;
+import Classes.Clients.CorporateClient;
+import Classes.Clients.VIPClient;
+
 public class DataManager
 {
     private static final String FILE_PATH = "clients.json";
-    private static Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    private static Gson gson = new GsonBuilder().setPrettyPrinting().registerTypeAdapter(Client.class, (JsonDeserializer<Client>) (json, type, ctx) -> {
+        String clientType = json.getAsJsonObject().get("type").getAsString();
+        switch (clientType) {
+            case "IndividualClient": return ctx.deserialize(json, IndividualClient.class);
+            case "StudentClient":    return ctx.deserialize(json, StudentClient.class);
+            case "CorporateClient":  return ctx.deserialize(json, CorporateClient.class);
+            case "VIPClient":        return ctx.deserialize(json, VIPClient.class);
+            default: throw new JsonParseException("Unknown client type: " + clientType);
+        }
+    }).create();
 
     public static void saveClients(ArrayList<Client> clients){
         try(Writer writer = new FileWriter(FILE_PATH)){
@@ -34,10 +48,10 @@ public class DataManager
     }
 
     public static void linkAccountsToOwners(ArrayList<Client> clients){
-    for(Client c : clients){
-        for(Account acc : c.accounts){
-            acc.owner = c;
+        for(Client c : clients){
+            for(Account acc : c.accounts){
+                acc.owner = c;
+            }
         }
     }
-}
 }

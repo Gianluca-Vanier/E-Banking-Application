@@ -39,7 +39,7 @@
                   <Insets left="10.0" />
                </HBox.margin>
             </VBox>
-            <Button fx:id="LogInButton" alignment="CENTER" mnemonicParsing="false" prefHeight="22.0" prefWidth="118.0" style="-fx-background-color: black;" text="Log In" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="LogInButton" alignment="CENTER" mnemonicParsing="false" onAction="#onLogIn" prefHeight="22.0" prefWidth="118.0" style="-fx-background-color: black;" text="Log In" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Semibold" size="13.0" />
                </font>
