@@ -9,18 +9,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="441.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="441.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SignUpController">
    <children>
       <HBox alignment="CENTER_LEFT" prefHeight="222.0" prefWidth="410.0" spacing="20.0">
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="184.0" prefWidth="250.0" spacing="10.0">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Client ID" textAlignment="CENTER" wrappingWidth="128.46955108642578">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username" textAlignment="CENTER" wrappingWidth="128.46955108642578">
                      <font>
                         <Font name="Segoe UI Semibold" size="17.0" />
                      </font>
                   </Text>
-                  <TextField prefHeight="26.0" prefWidth="189.0">
+                  <TextField fx:id="UsernameTF" prefHeight="26.0" prefWidth="189.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -30,7 +30,7 @@
                         <Font name="Segoe UI Semibold" size="17.0" />
                      </font>
                   </Text>
-                  <TextField prefHeight="26.0" prefWidth="189.0">
+                  <TextField fx:id="PasswordTF" prefHeight="26.0" prefWidth="189.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -40,7 +40,7 @@
                         <Font name="Segoe UI Semibold" size="17.0" />
                      </font>
                   </Text>
-                  <TextField prefHeight="26.0" prefWidth="189.0">
+                  <TextField fx:id="CPasswordTF" prefHeight="26.0" prefWidth="189.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -50,7 +50,7 @@
                   <Insets left="10.0" />
                </HBox.margin>
             </VBox>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="22.0" prefWidth="118.0" style="-fx-background-color: black;" text="Sign Up" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="SignUpButton" alignment="CENTER" mnemonicParsing="false" onAction="#onSignUp" prefHeight="22.0" prefWidth="118.0" style="-fx-background-color: black;" text="Sign Up" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Semibold" size="13.0" />
                </font>
@@ -74,12 +74,12 @@
                         <Font name="Segoe UI Semibold" size="13.0" />
                      </font>
                   </Text>
-                  <Button mnemonicParsing="false" prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: transparent;" text="Individual">
+                  <Button fx:id="IndiButton" mnemonicParsing="false" onAction="#indiClick" prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: transparent;" text="Individual">
                      <font>
                         <Font name="Segoe UI Semibold" size="10.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: transparent;" text="Student">
+                  <Button fx:id="StudentButton" mnemonicParsing="false" onAction="#studentClick" prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: transparent;" text="Student">
                      <font>
                         <Font name="Segoe UI Semibold" size="10.0" />
                      </font>
@@ -89,19 +89,19 @@
                         <Font name="Segoe UI Semibold" size="13.0" />
                      </font>
                   </Text>
-                  <Button mnemonicParsing="false" prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: transparent;" text="Corporate">
+                  <Button fx:id="CorpButton" mnemonicParsing="false" onAction="#corpClick" prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: transparent;" text="Corporate">
                      <font>
                         <Font name="Segoe UI Semibold" size="10.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: transparent;" text="VIP">
+                  <Button fx:id="VIPButton" mnemonicParsing="false" onAction="#vipClick" prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: transparent;" text="VIP">
                      <font>
                         <Font name="Segoe UI Semibold" size="10.0" />
                      </font>
                   </Button>
                </children>
             </VBox>
-            <Label alignment="TOP_LEFT" prefHeight="231.0" prefWidth="296.0" wrapText="true">
+            <Label fx:id="InfoDisplay" alignment="TOP_LEFT" prefHeight="231.0" prefWidth="296.0" wrapText="true">
                <font>
                   <Font name="Segoe UI Semibold" size="17.0" />
                </font>

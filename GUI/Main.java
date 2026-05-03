@@ -8,14 +8,13 @@ import javafx.application.Application;
 public class Main
 {
     public static ArrayList<Client> clients = new ArrayList<>();
+    
     public static void main(String[] args){
-        Application.launch(AppFX.class, args);
-        
-        /*clients = DataManager.loadClients();
+        clients = DataManager.loadClients();
         DataManager.linkAccountsToOwners(clients);
 
-        // START JAVA FX
+        Application.launch(AppFX.class, args);
 
-        DataManager.saveClients(clients);*/
+        DataManager.saveClients(clients);
     }
 }
