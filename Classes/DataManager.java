@@ -8,7 +8,6 @@ import Classes.Clients.Client;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-
 import Classes.Clients.IndividualClient;
 import Classes.Clients.StudentClient;
 import Classes.Clients.CorporateClient;

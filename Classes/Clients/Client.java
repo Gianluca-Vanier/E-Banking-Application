@@ -45,11 +45,6 @@ public abstract class Client
         
         accounts.add(acc); 
     }
-
-    public void transfer(Account from, Account to, double amount){
-        from.withdraw(amount);
-        to.deposit(amount);
-    }
     
     public boolean login(String id, String password){
         if(clientID.equals(id) && this.password.equals(password)){
