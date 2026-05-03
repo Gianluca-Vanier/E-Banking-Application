@@ -2,7 +2,6 @@ package Classes.Accounts;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-
 import Exceptions.InsufficientFundsException;
 import Classes.Transaction;
 import Classes.Clients.Client;
@@ -16,6 +15,8 @@ public abstract class Account
     public LocalDate openingDate;
     public ArrayList<Transaction> transactions = new ArrayList<>();
     public static int counter = 0;
+    public LocalDate lastInterestDate;
+    public LocalDate lastFeeDate;
     
 
     public Account(Client owner){

@@ -50,7 +50,7 @@
                   <Insets left="10.0" />
                </HBox.margin>
             </VBox>
-            <Button fx:id="SignUpButton" alignment="CENTER" mnemonicParsing="false" onAction="#onSignUp" prefHeight="22.0" prefWidth="118.0" style="-fx-background-color: black;" text="Sign Up" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="SignUpButton" alignment="CENTER" mnemonicParsing="false" onAction="#onSignUp" prefHeight="22.0" prefWidth="118.0" style="-fx-background-color: navy;" text="Sign Up" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Semibold" size="13.0" />
                </font>
@@ -74,12 +74,12 @@
                         <Font name="Segoe UI Semibold" size="13.0" />
                      </font>
                   </Text>
-                  <Button fx:id="IndiButton" mnemonicParsing="false" onAction="#indiClick" prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: transparent;" text="Individual">
+                  <Button fx:id="IndiButton" mnemonicParsing="false" onAction="#indiClick" prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: transparent;" text="Individual" textFill="NAVY" underline="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="10.0" />
                      </font>
                   </Button>
-                  <Button fx:id="StudentButton" mnemonicParsing="false" onAction="#studentClick" prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: transparent;" text="Student">
+                  <Button fx:id="StudentButton" mnemonicParsing="false" onAction="#studentClick" prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: transparent;" text="Student" textFill="NAVY" underline="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="10.0" />
                      </font>
@@ -89,12 +89,12 @@
                         <Font name="Segoe UI Semibold" size="13.0" />
                      </font>
                   </Text>
-                  <Button fx:id="CorpButton" mnemonicParsing="false" onAction="#corpClick" prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: transparent;" text="Corporate">
+                  <Button fx:id="CorpButton" mnemonicParsing="false" onAction="#corpClick" prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: transparent;" text="Corporate" textFill="NAVY" underline="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="10.0" />
                      </font>
                   </Button>
-                  <Button fx:id="VIPButton" mnemonicParsing="false" onAction="#vipClick" prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: transparent;" text="VIP">
+                  <Button fx:id="VIPButton" mnemonicParsing="false" onAction="#vipClick" prefHeight="0.0" prefWidth="71.0" style="-fx-background-color: transparent;" text="VIP" textFill="NAVY" underline="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="10.0" />
                      </font>

@@ -85,19 +85,19 @@ public class SignUpController
 
     @FXML
     protected void studentClick(){
-        InfoDisplay.setText("Student Client\\nNo monthly fee\n2% interest on Saving accounts\n5% interest on Investment accounts");
+        InfoDisplay.setText("Student Client\nNo monthly fee\n2% interest on Saving accounts\n5% interest on Investment accounts");
         clientType = "Student";
     }
 
     @FXML
     protected void corpClick(){
-        InfoDisplay.setText("Corporate Client\\n$10 monthly fee per account\n2% interest on Saving accounts\n5% interest on Investment accounts");
+        InfoDisplay.setText("Corporate Client\n$10 monthly fee per account\n2% interest on Saving accounts\n5% interest on Investment accounts");
         clientType = "Corporate";
     }
 
     @FXML
     protected void vipClick(){
-        InfoDisplay.setText("VIP Client\\nno monthly fee\n2% interest on Saving accounts\n5% interest on Investment accounts\n%1 interest bonus on Savings and Investment accounts");
+        InfoDisplay.setText("VIP Client\nno monthly fee\n2% interest on Saving accounts\n5% interest on Investment accounts\n%1 interest bonus on Savings and Investment accounts");
         clientType = "VIP";
     }
 
@@ -109,7 +109,7 @@ public class SignUpController
         alert.showAndWait();
     }
 
-    private void toLogin() {
+    private void toLogin(){
         try{
             Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
             Stage stage = (Stage) SignUpButton.getScene().getWindow();

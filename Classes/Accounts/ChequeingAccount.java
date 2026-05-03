@@ -1,5 +1,7 @@
 package Classes.Accounts;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import Classes.Clients.Client;
 import Classes.Clients.StudentClient;
 import Classes.Clients.VIPClient;
@@ -13,15 +15,16 @@ public class ChequeingAccount extends Account implements Maintainable
     
     @Override
     public void applyMonthlyFee(){
-        double fee;
-        
-        if(owner instanceof StudentClient || owner instanceof VIPClient){
-            fee = 0;
-        }
-        else{
-            fee = 10;
+        if(lastFeeDate != null && ChronoUnit.MONTHS.between(lastFeeDate, LocalDate.now()) < 1){
+            return;
         }
 
+        double fee = (owner instanceof StudentClient || owner instanceof VIPClient) ? 0 : 10;
         balance -= fee;
+        lastFeeDate = LocalDate.now();
+    }
+
+    public boolean isFeeDue(){
+        return lastFeeDate == null || ChronoUnit.MONTHS.between(lastFeeDate, LocalDate.now()) >= 1;
     }
 }

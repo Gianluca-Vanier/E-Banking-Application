@@ -24,7 +24,6 @@ public class LoginController
     @FXML
     private TextField PasswordTF;
 
-
     @FXML
     protected void onLogIn(ActionEvent event){
         String clientID = ClientIDTF.getText();

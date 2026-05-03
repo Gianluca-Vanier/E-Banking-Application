@@ -1,62 +1,79 @@
 package GUI;
 
+import Classes.Accounts.ChequeingAccount;
+import Classes.Accounts.SavingsAccount;
+import Classes.Accounts.InvestmentAccount;
+import Classes.Clients.Client;
+import Exceptions.MissingChequeingAccountException;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
-import Classes.Accounts.*;
-import Classes.Clients.Client;
 
-public class AddAccountController 
-{
+public class AddAccountController{
+
+    private Client currentClient;
+    private Runnable onSuccess;
+
     @FXML 
-    private ComboBox<String> accountTypeCB;
+    private ComboBox<String> accountTypeCombo;
     @FXML 
-    private Button confirm;
+    private Label errorLabel;
     @FXML 
-    private Button cancel;
-        
-    private Client client;
-    
-    public void setClient(Client client){
-        this.client = client;
-    }
+    private Button confirmButton;
 
     @FXML
     public void initialize(){
-        accountTypeCB.getItems().addAll("Chequeing", "Savings", "Investment");
-        accountTypeCB.setValue("Chequeing");
+        accountTypeCombo.getItems().addAll("Chequeing", "Savings", "Investment");
+        accountTypeCombo.getSelectionModel().selectFirst();
+        errorLabel.setVisible(false);
+    }
+
+    public void setClient(Client client){
+        this.currentClient = client;
+    }
+
+    public void setOnSuccess(Runnable callback){
+        this.onSuccess = callback;
     }
 
     @FXML
-    protected void onConfirm(ActionEvent event){
-        String type = accountTypeCB.getValue();
+    private void onConfirm(){
+        String selected = accountTypeCombo.getValue();
+        errorLabel.setVisible(false);
 
-        Account acc = null;
+        try{
+            switch(selected){
+                case "Chequeing":
+                    currentClient.addAccount(new ChequeingAccount(currentClient));
+                    break;
+                case "Savings":
+                    currentClient.addAccount(new SavingsAccount(currentClient));
+                    break;
+                case "Investment":
+                    currentClient.addAccount(new InvestmentAccount(currentClient));
+                    break;
+            }
 
-        switch(type){
-            case "Chequeing":  
-                 acc = new ChequeingAccount(client); 
-                break;
-             case "Savings":   
-                acc = new SavingsAccount(client); 
-                break;
-            case "Investment": 
-                acc = new InvestmentAccount(client); 
-                break;
+            if(onSuccess != null){
+                onSuccess.run();
+            }
+
+            closeWindow();
+
+        } 
+        catch(MissingChequeingAccountException e){
+            errorLabel.setText("You must have a Chequeing account first.");
+            errorLabel.setVisible(true);
         }
-
-        client.addAccount(acc);
-        closeWindow(event);
     }
 
     @FXML
-    protected void onCancel(ActionEvent event){
-        closeWindow(event);
+    private void onCancel(){
+        closeWindow();
     }
 
-    private void closeWindow(ActionEvent event){
-        Stage stage = (Stage) accountTypeCB.getScene().getWindow();
+    private void closeWindow(){
+        Stage stage = (Stage) confirmButton.getScene().getWindow();
         stage.close();
     }
 }

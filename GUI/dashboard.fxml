@@ -10,79 +10,78 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.DashboardController">
    <children>
+
       <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="600.0" style="-fx-background-color: navy;">
          <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="E">
+            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-radius: 100; -fx-background-color: navy; -fx-border-color: white;" text="E" textFill="WHITE">
                <font>
-                  <Font name="Segoe UI Semibold" size="24.0" />
+                  <Font name="Cooper Black" size="24.0" />
                </font>
                <HBox.margin>
-                  <Insets left="30.0" />
+                  <Insets left="10.0" />
                </HBox.margin>
-            </Text>
+            </Button>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="ClientID">
-               <font>
-                  <Font name="Segoe UI Semibold" size="12.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="50.0" right="10.0" />
-               </HBox.margin>
+               <font><Font name="Segoe UI Semibold" size="10.0" /></font>
+               <HBox.margin><Insets left="20.0" right="10.0" /></HBox.margin>
             </Text>
             <Label fx:id="clientID" text="ClientID" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI Semibold" size="14.0" />
-               </font>
+               <font><Font name="Segoe UI Semibold" size="14.0" /></font>
             </Label>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
-               <font>
-                  <Font name="Segoe UI Semibold" size="12.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="25.0" right="10.0" />
-               </HBox.margin>
+               <font><Font name="Segoe UI Semibold" size="10.0" /></font>
+               <HBox.margin><Insets left="50.0" right="10.0" /></HBox.margin>
             </Text>
             <Label fx:id="username" text="Username" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI Semibold" size="14.0" />
-               </font>
+               <font><Font name="Segoe UI Semibold" size="14.0" /></font>
             </Label>
             <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
-               <font>
-                  <Font name="Segoe UI Semibold" size="12.0" />
-               </font>
-               <HBox.margin>
-                  <Insets left="50.0" right="10.0" />
-               </HBox.margin>
+               <font><Font name="Segoe UI Semibold" size="10.0" /></font>
+               <HBox.margin><Insets left="50.0" right="10.0" /></HBox.margin>
             </Text>
-            <Label fx:id="date" text="ClientID" textFill="WHITE">
-               <font>
-                  <Font name="Segoe UI Semibold" size="14.0" />
-               </font>
+            <Label fx:id="date" text="Date" textFill="WHITE">
+               <font><Font name="Segoe UI Semibold" size="14.0" /></font>
             </Label>
          </children>
       </HBox>
-      <HBox prefHeight="530.0" prefWidth="600.0">
+
+      <HBox prefHeight="530.0" prefWidth="550.0">
          <children>
+
             <VBox alignment="TOP_CENTER" prefHeight="530.0" prefWidth="70.0" spacing="50.0" style="-fx-background-color: navy;">
                <children>
-                  <Button fx:id="transaction" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 100; -fx-background-color: white;" text="T">
-                     <VBox.margin>
-                        <Insets top="50.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="Times New Roman Bold" size="24.0" />
-                     </font>
+                  <Button fx:id="transaction" mnemonicParsing="false" onAction="#onTransaction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 100; -fx-background-color: white;" text="T">
+                     <VBox.margin><Insets top="50.0" /></VBox.margin>
+                     <font><Font name="Times New Roman Bold" size="24.0" /></font>
                   </Button>
                   <Button fx:id="addAccount" mnemonicParsing="false" onAction="#onAddAccount" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 100; -fx-background-color: white;" text="+">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
+                     <font><Font size="24.0" /></font>
                   </Button>
+            
+                  <Button mnemonicParsing="false" onAction="#onApplyInterest" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 100; -fx-background-color: white;" text="I">
+               <font>
+                        <Font name="Times New Roman Bold" size="24.0" />
+                     </font>
+            </Button>
+            
+            <Button mnemonicParsing="false" onAction="#onApplyFees" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 100; -fx-background-color: white;" text="F">
+               <font>
+                        <Font name="Times New Roman Bold" size="24.0" />
+                     </font>
+            </Button>
                </children>
             </VBox>
-            <VBox prefHeight="530.0" prefWidth="240.0" />
-            <VBox prefHeight="530.0" prefWidth="240.0" />
+
+            <VBox fx:id="accountsVBox" prefHeight="530.0" prefWidth="240.0" spacing="4.0" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 0 1 0 0;">
+               <padding><Insets left="10.0" top="16.0" /></padding>
+            </VBox>
+
+            <VBox fx:id="balancesVBox" prefHeight="530.0" prefWidth="240.0" spacing="4.0" style="-fx-background-color: white;">
+               <padding><Insets left="10.0" top="16.0" /></padding>
+            </VBox>
+
          </children>
       </HBox>
+
    </children>
 </VBox>

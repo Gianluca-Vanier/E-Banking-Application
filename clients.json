@@ -4,6 +4,11 @@
     "name": "UserAdmin",
     "password": "1234",
     "type": "IndividualClient",
-    "accounts": []
+    "accounts": [],
+    "lastMaintenanceDate": {
+      "year": 2026,
+      "month": 5,
+      "day": 3
+    }
   }
 ]

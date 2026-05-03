@@ -1,7 +1,7 @@
 package Classes.Accounts;
 
 import java.time.LocalDate;
-
+import java.time.temporal.ChronoUnit;
 import Classes.Clients.Client;
 import Classes.Clients.VIPClient;
 import Exceptions.InsufficientFundsException;
@@ -17,7 +17,7 @@ public class InvestmentAccount extends Account implements Interest
     public void transfertoChequeing(Account chequeing, double amount){
         try{
             if(LocalDate.now().isBefore(openingDate.plusDays(365))){
-            throw new InvestmentLockException();
+                throw new InvestmentLockException();
             }
 
             if(amount > balance){
@@ -41,13 +41,22 @@ public class InvestmentAccount extends Account implements Interest
     }
 
     @Override
-    public void applyInterest(){
-        double rate = 0.02;
+    public void applyInterest(){  
+        if(lastInterestDate != null && ChronoUnit.MONTHS.between(lastInterestDate, LocalDate.now()) < 1){
+            return;
+        }
         
+        double rate = 0.05;
+
         if(owner instanceof VIPClient){
             rate += 0.01;
         }
 
         balance += balance * rate;
+        lastInterestDate = LocalDate.now();
+    }
+
+    public boolean isInterestDue() {
+        return lastInterestDate == null || ChronoUnit.MONTHS.between(lastInterestDate, LocalDate.now()) >= 1;
     }
 }
